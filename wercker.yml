@@ -1,4 +1,6 @@
-box: java
+box:
+  id: provisdom/docker-clojure
+  tag: 0.1.0
 
 build:
   steps:
