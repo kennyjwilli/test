@@ -4,4 +4,7 @@ box:
 
 build:
   steps:
-    - lein test
+    - script:
+        name: Run tests
+        code: |
+          lein test
