@@ -5,15 +5,15 @@
                  ["maven-central" "http://repo1.maven.org/maven2/"]
                  ["provisdom" {:url        "s3p://provisdom-artifacts/releases/"
                                :username   (System/getenv "AWS_ACCESS_KEY")
-                               :passphrase (System/getenv "AWS_SECRET_KEY")}]]
+                               :passphrase (System/getenv "AWS_SECRET_KEY")}]])
 
-  :dependencies '[[provisdom/boot-tasks "0.4.1" :scope "test" :exclusions [commons-codec]]])
+(def +version+ "0.1.0")
 
-(require
-  '[provisdom.boot-tasks :refer :all])
-
-(set-project-deps!)
-(default-task-options!)
+(task-options!
+  pom {:project     'test-ci
+       :version     +version+
+       :description "A test"
+       :license     {"EPL" "http://www.eclipse.org/legal/epl-v10.html"}})
 
 (deftask release2
          "Developer workflow for web-component UX."
