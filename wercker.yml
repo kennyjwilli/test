@@ -1,6 +1,6 @@
 box:
   id: provisdom/docker-clojure
-  tag: 0.1.0
+  tag: 0.1.1
 
 build:
   steps:
@@ -12,6 +12,4 @@ build:
     - script:
       name: Deploy to S3
       code: |
-        echo $AWS_ACCESS_KEY
-        echo $AWS_SECRET_KEY
         boot release2 -u $AWS_ACCESS_KEY -p $AWS_SECRET_KEY
